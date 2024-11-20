@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oscurecer Pantalla</title>
+  <style>
+    /* Reset y configuración */
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden; /* Oculta scroll si necesario */
+    }
+
+    /* Capa superpuesta */
+    #overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.8); /* Oscurece */
+      z-index: 9999; /* Siempre arriba */
+      display: none; /* Por defecto, oculto */
+    }
+
+    /* Botón para mostrar/ocultar */
+    #control-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 10000; /* Encima del overlay */
+    }
+
+    #control-button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <!-- Capa oscura -->
+  <div id="overlay"></div>
+
+  <!-- Botón de control -->
+  <button id="control-button" onclick="toggleOverlay()">Oscurecer Pantalla</button>
+
+  <script>
+    // Función para mostrar/ocultar la capa oscura
+    function toggleOverlay() {
+      const overlay = document.getElementById('overlay');
+      overlay.style.display = (overlay.style.display === 'block') ? 'none' : 'block';
+    }
+  </script>
+</body>
+</html>
